@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "checkJs": false,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "target": "es2020",
+    "module": "es2020",
+    "paths": {
+      "react-dom/*": [
+        "@hot-loader/react-dom/*"
+      ],
+      "@perseus/*": [
+        "src/*"
+      ],
+      "@perseus-shared/*": [
+        "src/shared/*"
+      ],
+      "@perseus-elements/*": [
+        "src/shared/components/*"
+      ],
+      "@perseus-modules/*": [
+        "src/modules/*"
+      ]
+    },
+    "baseUrl": "./"
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "build",
+    ".vscode",
+    "coverage",
+    "jspm_packages",
+    "tmp",
+    "temp",
+    "bower_components",
+    ".npm",
+    ".yarn"
+  ],
+  "typeAcquisition": {
+    "enable": true
+  }
+}
