@@ -7,16 +7,17 @@ export const ApplicationContext = createContext({});
 
 
 export const initialAppState = {
-  data: [],
+  selectedCharacter: null,
 };
 
 // reducer function
 export const appStateReducer = (state, action) => {
+  console.log(action, state,'appStateReducer')
   switch (action.type) {
-    case AppStateActions.ADD:
+    case AppStateActions.SET_CHARACTER:
       return {
         ...state,
-        menuMeta: { ...action.payload },
+        selectedCharacter: { ...action?.payload??{}},
       };
     default:
       return state;
@@ -25,11 +26,11 @@ export const appStateReducer = (state, action) => {
 
 // context provider
 const ApplicationProvider = ({ children }) => {
-  const [appState, appStateActionDispatch] = useReducer(appStateReducer, initialAppState);
+  const [appState, dispatch] = useReducer(appStateReducer, initialAppState);
 
   const value = {
     appState,
-    appStateActionDispatch,
+    dispatch,
   };
 
   return <ApplicationContext.Provider value={value}>{children}</ApplicationContext.Provider>;

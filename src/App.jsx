@@ -12,28 +12,31 @@ import ErrorFallback from "@perseus-elements/error-fallback";
 import LoadingFallBack from "@perseus-elements/loading-fallback";
 
 /* Context */
-import AppStateProvider from "@perseus-shared/contexts/application";
+import ApplicationProvider from "@perseus-shared/contexts/application";
+import Layout from "@perseus-shared/components/layout";
 
 /* Modules */
 const Home = React.lazy(() =>
   import(/* webpackPrefetch: true */ "@perseus-modules/rick-and-morty")
 );
-
+console.log(Home, "Home");
 function App() {
   return (
     <React.StrictMode>
       <React.Suspense fallback={<LoadingFallBack />}>
-        <AppStateProvider>
+        <ApplicationProvider>
           <QueryClientProvider client={queryClient}>
             <ErrorBoundary FallbackComponent={ErrorFallback}>
               <BrowserRouter>
                 <Switch>
-                  <Route path="/" exact component={Home} />
+                  <Layout>
+                    <Route path="/" exact component={Home} />
+                  </Layout>
                 </Switch>
               </BrowserRouter>
             </ErrorBoundary>
           </QueryClientProvider>
-        </AppStateProvider>
+        </ApplicationProvider>
       </React.Suspense>
     </React.StrictMode>
   );

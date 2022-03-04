@@ -55,17 +55,7 @@ const options = [
 ];
 
 const Select = (props) => {
-  const [selectValue, setSelectValue] = useState(null);
-  return (
-    <div>
-      <VirtualizedSelect
-        options={options}
-        onChange={(selectValue) => setSelectValue(selectValue)}
-        value={selectValue}
-        {...props}
-      />
-    </div>
-  );
+  return <VirtualizedSelect options={options} {...props} />;
 };
 
 export default Select;
