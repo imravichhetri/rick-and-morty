@@ -1,4 +1,15 @@
 @tailwind base;
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+}
 @tailwind components;
 @tailwind utilities;
 *,
@@ -7,4 +18,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+:root {
+  --header-height: 70px;
+  --footer-height: 30px;
+}
+#app {
+  height: 100vh;
+}
+
+header {
+  height: var(--header-height);
+}
+
+footer {
+  height: var(--footer-height);
 }
