@@ -30,7 +30,14 @@ function App() {
               <BrowserRouter>
                 <Switch>
                   <Layout>
-                    <Route path="/" exact component={Home} />
+                    <Route
+                      path={[
+                        "/rick-and-morty/characters/:characterId",
+                        "/rick-and-morty/characters",
+                      ]}
+                      component={Home}
+                      exact
+                    />
                   </Layout>
                 </Switch>
               </BrowserRouter>

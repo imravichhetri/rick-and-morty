@@ -14,7 +14,7 @@ export const initialAppState = {
 export const appStateReducer = (state, action) => {
   console.log(action, state,'appStateReducer')
   switch (action.type) {
-    case AppStateActions.SET_CHARACTER:
+    case AppStateActions.SET_CHARACTER_DETAIL:
       return {
         ...state,
         selectedCharacter: { ...action?.payload??{}},

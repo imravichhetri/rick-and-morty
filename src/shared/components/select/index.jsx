@@ -55,6 +55,7 @@ const options = [
 ];
 
 const Select = (props) => {
+  console.log(props, "props---");
   return <VirtualizedSelect options={options} {...props} />;
 };
 
