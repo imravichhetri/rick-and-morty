@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo } from "react";
+import React, { useCallback, useContext, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 
 import RickAndMortyTemplate from "./RickAndMorty.template";
@@ -25,7 +25,8 @@ const RickAndMorty = (props) => {
     allCharactersSuccess,
   } = useGetAllCharacters();
   const episodes = useMemo(() => {
-    return selectedCharacter?.episode.map((episode = "") =>
+    console.log(selectedCharacter, "selectedCharacter");
+    return (selectedCharacter?.episode ?? []).map((episode = "") =>
       episode.substr(episode.lastIndexOf("/") + 1)
     );
   }, [selectedCharacter]);
@@ -42,10 +43,15 @@ const RickAndMorty = (props) => {
     characterId,
     "allCharacters"
   );
-  const _onChange = (data) => {
+  const _onChange = useCallback((data) => {
+    console.log(data, "data-----");
     dispatch({ type: appStateActions.SET_CHARACTER_DETAIL, payload: data });
-    push(`/rick-and-morty/characters/${data.id}`);
-  };
+    if (data?.id) {
+      push(`/rick-and-morty/characters/${data.id}`);
+    } else {
+      push(`/rick-and-morty/characters`);
+    }
+  }, []);
 
   useEffect(() => {
     if (characterId && !selectedCharacter && allCharacters.length) {
@@ -62,7 +68,7 @@ const RickAndMorty = (props) => {
       charactersOptions={allCharacters}
       onCharacterSelect={_onChange}
       selectedCharacter={selectedCharacter}
-      episodes={episodesList}
+      episodes={Array.isArray(episodesList) ? episodesList : [episodesList]}
       episodeLoading={episodesListLoading}
     />
   );

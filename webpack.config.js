@@ -80,6 +80,15 @@ const config = {
           },
         ],
       },
+      {
+        test: /\.ico$/i,
+        use: {
+            loader: "file-loader",
+            options: {
+                name: "[name].[ext]"
+            }
+        }
+      }
     ],
   },
   resolve: {
@@ -98,9 +107,10 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'tidings',
+      title: 'Rick and Morty',
       template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html',
+      favicon: './src/shared/assets/favicon.ico'
     }),
     new Dotenv(),
     new MiniCssExtractPlugin(),

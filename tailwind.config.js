@@ -29,7 +29,13 @@ module.exports = {
     },
     colors: {
       'primary-white': 'var(--background-primary-color)',
-      'stone-color': 'var(--border-stone-600)'
+      'primary-dark':'var(--background-dark-color)',
+      'stone-color': 'var(--border-stone-600)',
+      'secondary-dark': 'var(--secondary-dark-color)',
+
+      'primary': 'var(--primary)',
+      'secondary': 'var(--secondary)',
+      'tertiary': 'var(--tertiary)',
     },
   },
   variants: {

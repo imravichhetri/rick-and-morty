@@ -48,7 +48,7 @@ export const useGetEpisodesByNumbers = (episodes=[]) =>{
     isError: episodesListError,
     isSuccess: episodesListSuccess,
   } = useQuery(
-    'episodesByNumbers',
+    ['episodesByNumbers',...episodes],
     () => getEpisodesByNumbers(episodes),
     {
       enabled: !!episodes.length,

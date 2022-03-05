@@ -19,11 +19,14 @@ const RickAndMorty = ({
     <div className="h-full">
       <article className="h-9">
         <Select
+          className="cursor-pointer"
           options={charactersOptions}
           onChange={onCharacterSelect}
           value={selectedCharacter?.id}
           labelKey="name"
           valueKey="id"
+          placeholder="Search or Select any character"
+          aria-label="Search or Select any character"
         />
       </article>
       {selectedCharacter && (
@@ -31,7 +34,7 @@ const RickAndMorty = ({
           <Info {...(selectedCharacter || {})} />
         </article>
       )}
-      {episodes.length ? (
+      {selectedCharacter && episodes.length ? (
         <article className="md:bg-primary-white relative mb-7">
           <VirtualizedList
             style={{ height: "450px" }}

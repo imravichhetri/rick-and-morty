@@ -23,8 +23,14 @@
   --header-height: 50px;
   --footer-height: 30px;
 
-  --background-primary-color: rgb(236, 233, 233);
-  --border-stone-600: rgba(189, 189, 189, 0.767);
+  --background-primary-color: rgb(255, 255, 255);
+  --background-dark-color: #1f1f1f;
+  --border-stone-600: rgba(209, 209, 209, 0.767);
+  --secondary-dark-color: #7e7c7c;
+
+  --primary: #fdf5df;
+  --secondary: #5ebec4;
+  --tertialry: #f92c85;
 }
 #app {
   min-height: 100vh;

@@ -17,7 +17,7 @@ export const appStateReducer = (state, action) => {
     case AppStateActions.SET_CHARACTER_DETAIL:
       return {
         ...state,
-        selectedCharacter: { ...action?.payload??{}},
+        selectedCharacter: action?.payload ? { ...action.payload }: null,
       };
     default:
       return state;
