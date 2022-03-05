@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import { hot } from "react-hot-loader/root";
 import { QueryClientProvider } from "react-query";
+import { ToastProvider } from "react-toast-notifications";
 
 /* Libs */
 import queryClient from "@perseus/shared/lib/query-client";
@@ -19,7 +20,6 @@ import Layout from "@perseus-shared/components/layout";
 const Home = React.lazy(() =>
   import(/* webpackPrefetch: true */ "@perseus-modules/rick-and-morty")
 );
-console.log(Home, "Home");
 function App() {
   return (
     <React.StrictMode>
@@ -29,16 +29,18 @@ function App() {
             <ErrorBoundary FallbackComponent={ErrorFallback}>
               <BrowserRouter>
                 <Switch>
-                  <Layout>
-                    <Route
-                      path={[
-                        "/rick-and-morty/characters/:characterId",
-                        "/rick-and-morty/characters",
-                      ]}
-                      component={Home}
-                      exact
-                    />
-                  </Layout>
+                  <ToastProvider>
+                    <Layout>
+                      <Route
+                        path={[
+                          "/rick-and-morty/characters/:characterId",
+                          "/rick-and-morty/characters",
+                        ]}
+                        component={Home}
+                        exact
+                      />
+                    </Layout>
+                  </ToastProvider>
                 </Switch>
               </BrowserRouter>
             </ErrorBoundary>

@@ -14,7 +14,6 @@ const RickAndMorty = ({
   episodes = [],
   episodeLoading,
 }) => {
-  console.log(selectedCharacter, "selectedCharacter");
   return (
     <div className="h-full">
       <article className="h-9">
@@ -35,7 +34,7 @@ const RickAndMorty = ({
         </article>
       )}
       {selectedCharacter && episodes.length ? (
-        <article className="md:bg-primary-white relative mb-7">
+        <article className="relative mb-7">
           <VirtualizedList
             style={{ height: "450px" }}
             className="md:mb-[30px]"
