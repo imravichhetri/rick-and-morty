@@ -5,17 +5,19 @@ import Select from "@perseus/shared/components/select";
 import Info from "@perseus/shared/components/Info";
 import VirtualizedList from "@perseus/shared/components/virtualized-list";
 import EpisodeItem from "@perseus/shared/components/episode-item";
+import LoadingComponent from "@perseus/shared/components/loading-component";
 
 const RickAndMorty = ({
   charactersOptions = [],
   onCharacterSelect = () => {},
   selectedCharacter,
   episodes = [],
+  episodeLoading,
 }) => {
   console.log(selectedCharacter, "selectedCharacter");
   return (
-    <div>
-      <article>
+    <div className="h-full">
+      <article className="h-9">
         <Select
           options={charactersOptions}
           onChange={onCharacterSelect}
@@ -30,12 +32,13 @@ const RickAndMorty = ({
         </article>
       )}
       {episodes.length ? (
-        <article>
+        <article className="md:bg-primary-white relative mb-7">
           <VirtualizedList
-            data={newsData}
-            feature={activeTopic}
+            style={{ height: "450px" }}
+            className="md:mb-[30px]"
+            data={episodes}
             contentComponent={EpisodeItem}
-            loading={loading}
+            loading={episodeLoading}
             loadingComponent={LoadingComponent}
           />
         </article>

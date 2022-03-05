@@ -23,6 +23,13 @@ module.exports = {
         sm: { max: '640px' },
         // => @media (max-width: 639px) { ... }
       },
+      height: {
+        table: 'calc(100% - 280px) !important'
+      }
+    },
+    colors: {
+      'primary-white': 'var(--background-primary-color)',
+      'stone-color': 'var(--border-stone-600)'
     },
   },
   variants: {

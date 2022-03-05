@@ -20,17 +20,20 @@
   box-sizing: border-box;
 }
 :root {
-  --header-height: 70px;
+  --header-height: 50px;
   --footer-height: 30px;
+
+  --background-primary-color: rgb(236, 233, 233);
+  --border-stone-600: rgba(189, 189, 189, 0.767);
 }
 #app {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 header {
-  height: var(--header-height);
+  min-height: var(--header-height);
 }
 
 footer {
-  height: var(--footer-height);
+  min-height: var(--footer-height);
 }

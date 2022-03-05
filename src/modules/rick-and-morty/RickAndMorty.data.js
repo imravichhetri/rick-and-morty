@@ -43,22 +43,23 @@ const getEpisodesByNumbers = (episodes=[]) => {
 export const useGetEpisodesByNumbers = (episodes=[]) =>{
 
   const {
-    data: allCharacters,
-    isLoading: allCharactersLoading,
-    isError: allCharactersError,
-    isSuccess: allCharactersSuccess,
+    data: episodesList,
+    isLoading: episodesListLoading,
+    isError: episodesListError,
+    isSuccess: episodesListSuccess,
   } = useQuery(
     'episodesByNumbers',
-    () => getEpisodesByNumbers(),
+    () => getEpisodesByNumbers(episodes),
     {
+      enabled: !!episodes.length,
       refetchInterval: config.episodesRefetchTime
     }
   );
 
   return {
-    allCharacters,
-    allCharactersLoading,
-    allCharactersError,
-    allCharactersSuccess,
+    episodesList,
+    episodesListLoading,
+    episodesListError,
+    episodesListSuccess,
   };
 }
