@@ -12,7 +12,6 @@ export const initialAppState = {
 
 // reducer function
 export const appStateReducer = (state, action) => {
-  console.log(action, state,'appStateReducer')
   switch (action.type) {
     case AppStateActions.SET_CHARACTER_DETAIL:
       return {

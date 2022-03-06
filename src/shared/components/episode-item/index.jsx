@@ -7,6 +7,7 @@ const EpisodeItem = ({ data }) => {
       key={data.id}
       className="flex h-20 border-b border-stone-color px-2 hover:bg-primary-white cursor-pointer"
       role="listitem"
+      data-testid="episodeItem"
     >
       <div className="flex flex-col flex-1 justify-center">
         <div>{data?.name ?? ""}</div>

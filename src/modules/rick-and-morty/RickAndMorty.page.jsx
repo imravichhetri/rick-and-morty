@@ -15,10 +15,8 @@ import strings from "@perseus/shared/constants/strings";
 
 const RickAndMorty = (props) => {
   const { addToast } = useToasts();
-  const {
-    appState: { selectedCharacter },
-    dispatch,
-  } = useContext(ApplicationContext);
+  const { appState, dispatch } = useContext(ApplicationContext);
+  const { selectedCharacter } = appState;
   const { push } = useHistory();
   const { characterId } = useParams();
   const {
@@ -38,7 +36,6 @@ const RickAndMorty = (props) => {
     episodesListError,
     episodesListSuccess,
   } = useGetEpisodesByNumbers(episodes);
-
   const _onChange = useCallback((data) => {
     dispatch({ type: appStateActions.SET_CHARACTER_DETAIL, payload: data });
     if (data?.id) {

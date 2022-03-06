@@ -8,7 +8,13 @@ import "./styles.css";
 import VirtualizedSelect from "react-virtualized-select";
 
 const Select = (props) => {
-  return <VirtualizedSelect {...props} id="virtualizedSelect" />;
+  return (
+    <VirtualizedSelect
+      {...props}
+      id="virtualizedSelect"
+      data-testid="characterInput"
+    />
+  );
 };
 
 export default Select;

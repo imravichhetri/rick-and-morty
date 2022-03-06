@@ -16,7 +16,7 @@ const RickAndMorty = ({
 }) => {
   return (
     <div className="h-full">
-      <article className="h-9">
+      <article className="h-9" data-testid="article">
         <Select
           className="cursor-pointer"
           options={charactersOptions}

@@ -2,7 +2,7 @@ import config, { endpoints } from "@perseus/shared/config";
 import fetcher from "@perseus/shared/lib/fetcher";
 import { useQuery } from "react-query";
 
-const getAllCharacters = () => {
+const getAllCharacters = async () => {
   try{
     return fetcher(`${endpoints.characters}`).then(data=>data?.results??[]);
   } catch(e) {
@@ -23,7 +23,6 @@ export const useGetAllCharacters = () =>{
       refetchInterval: config.charactersRefetchTime
     }
   );
-
   return {
     allCharacters,
     allCharactersLoading,

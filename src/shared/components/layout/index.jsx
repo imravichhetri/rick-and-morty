@@ -2,7 +2,6 @@ import React from "react";
 
 import LogoUrl from "@perseus-shared/assets/logo.png";
 
-console.log(LogoUrl, "url=---");
 const Layout = ({ children }) => {
   return (
     <section className="flex flex-col min-h-screen bg-primary">
