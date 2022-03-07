@@ -57,6 +57,7 @@ const RickAndMorty = (props) => {
 
   useEffect(() => {
     if (allCharactersError) {
+      console.log(allCharactersError, "allCharactersError");
       addToast(allCharactersError?.message ?? strings.ERROR_MESSAGE, {
         appearance: "error",
         autoDismiss: true,

@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
             className="h-20 md:h-15"
           />
         </div>
-        <h1 className="flex flex-col justify-center block md:hidden">
+        <h1 className="flex flex-col justify-center block md:hidden uppercase font-bold">
           Characters
         </h1>
       </header>

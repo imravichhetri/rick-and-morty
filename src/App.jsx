@@ -39,6 +39,13 @@ function App() {
                         component={Home}
                         exact
                       />
+                      <Route
+                        path={["", "/"]}
+                        render={() => {
+                          <Redirect from="" to="/rick-and-morty/characters" />;
+                        }}
+                        exact
+                      />
                     </Layout>
                   </ToastProvider>
                 </Switch>
