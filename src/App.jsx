@@ -41,9 +41,9 @@ function App() {
                       />
                       <Route
                         path={["", "/"]}
-                        render={() => {
-                          <Redirect from="" to="/rick-and-morty/characters" />;
-                        }}
+                        render={() => (
+                          <Redirect from="" to="/rick-and-morty/characters" />
+                        )}
                         exact
                       />
                     </Layout>
